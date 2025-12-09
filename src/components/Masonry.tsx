@@ -55,6 +55,7 @@ interface Item {
   img: string;
   url: string;
   height: number;
+  label?: string;
 }
 
 interface GridItem extends Item {
@@ -74,6 +75,7 @@ interface MasonryProps {
   hoverScale?: number;
   blurToFocus?: boolean;
   colorShiftOnHover?: boolean;
+  showTooltip?: boolean;
 }
 
 const Masonry: React.FC<MasonryProps> = ({
@@ -85,7 +87,8 @@ const Masonry: React.FC<MasonryProps> = ({
   scaleOnHover = true,
   hoverScale = 0.95,
   blurToFocus = true,
-  colorShiftOnHover = false
+  colorShiftOnHover = false,
+  showTooltip = false
 }) => {
   const columns = useMedia(
     ['(min-width:1500px)', '(min-width:1000px)', '(min-width:600px)', '(min-width:400px)'],
@@ -224,9 +227,9 @@ const Masonry: React.FC<MasonryProps> = ({
         <div
           key={item.id}
           data-key={item.id}
-          className="absolute box-content cursor-pointer"
+          className="absolute box-content cursor-pointer group"
           style={{ willChange: 'transform, width, height, opacity' }}
-          onClick={() => window.open(item.url, '_blank', 'noopener')}
+          onClick={() => window.location.href = item.url}
           onMouseEnter={e => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={e => handleMouseLeave(item.id, e.currentTarget)}
         >
@@ -236,6 +239,11 @@ const Masonry: React.FC<MasonryProps> = ({
           >
             {colorShiftOnHover && (
               <div className="color-overlay absolute inset-0 rounded-[10px] bg-gradient-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none" />
+            )}
+            {showTooltip && item.label && (
+              <div className="absolute bottom-3 left-3 right-3 bg-black/70 text-white px-3 py-2 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {item.label}
+              </div>
             )}
           </div>
         </div>

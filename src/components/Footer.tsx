@@ -1,103 +1,70 @@
 "use client";
 
 import Logo from "@/shared/Logo";
-import SocialsList1 from "@/shared/SocialsList1";
-import { CustomLink } from "@/data/types";
 import React from "react";
 import FooterNav from "./FooterNav";
-
-export interface WidgetFooterMenu {
-  id: string;
-  title: string;
-  menus: CustomLink[];
-}
-
-const widgetMenus: WidgetFooterMenu[] = [
-  {
-    id: "5",
-    title: "Getting started",
-    menus: [
-      { href: "#", label: "Installation" },
-      { href: "#", label: "Release Notes" },
-      { href: "#", label: "Upgrade Guide" },
-      { href: "#", label: "Browser Support" },
-      { href: "#", label: "Editor Support" },
-    ],
-  },
-  {
-    id: "1",
-    title: "Explore",
-    menus: [
-      { href: "#", label: "Design features" },
-      { href: "#", label: "Prototyping" },
-      { href: "#", label: "Design systems" },
-      { href: "#", label: "Pricing" },
-      { href: "#", label: "Security" },
-    ],
-  },
-  {
-    id: "2",
-    title: "Resources",
-    menus: [
-      { href: "#", label: "Best practices" },
-      { href: "#", label: "Support" },
-      { href: "#", label: "Developers" },
-      { href: "#", label: "Learn design" },
-      { href: "#", label: "Releases" },
-    ],
-  },
-  {
-    id: "4",
-    title: "Community",
-    menus: [
-      { href: "#", label: "Discussion Forums" },
-      { href: "#", label: "Code of Conduct" },
-      { href: "#", label: "Community Resources" },
-      { href: "#", label: "Contributing" },
-      { href: "#", label: "Concurrent Mode" },
-    ],
-  },
-];
+import Link from "next/link";
 
 const Footer: React.FC = () => {
-  const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
-    return (
-      <div key={index} className="text-sm">
-        <h2 className="font-semibold text-neutral-700 dark:text-neutral-200">
-          {menu.title}
-        </h2>
-        <ul className="mt-5 space-y-4">
-          {menu.menus.map((item, index) => (
-            <li key={index}>
-              <a
-                key={index}
-                className="text-neutral-6000 dark:text-neutral-300 hover:text-black dark:hover:text-white"
-                href={item.href}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  };
-
   return (
     <>
       <FooterNav />
 
-      <div className="nc-Footer relative py-24 lg:py-28 border-t border-neutral-200 dark:border-neutral-700">
-        <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-10 ">
-          <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
-            <div className="col-span-2 md:col-span-1">
+      <div className="nc-Footer relative py-16 lg:py-20 border-t border-neutral-200 dark:border-neutral-700">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+            <div className="md:col-span-2">
               <Logo />
+              <p className="mt-4 text-neutral-600 dark:text-neutral-300 text-sm">
+                Your trusted partner for comfortable and memorable stays. Book your perfect accommodation with ease.
+              </p>
+              <div className="flex space-x-3 mt-6">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900 transition-colors">
+                  <i className="lab la-facebook-f text-xl"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900 transition-colors">
+                  <i className="lab la-twitter text-xl"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900 transition-colors">
+                  <i className="lab la-instagram text-xl"></i>
+                </a>
+              </div>
             </div>
-            <div className="col-span-2 flex items-center md:col-span-3">
-              <SocialsList1 className="flex items-center space-x-3 lg:space-x-0 lg:flex-col lg:space-y-2.5 lg:items-start" />
+
+            <div className="text-sm">
+              <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Quick Links</h3>
+              <ul className="space-y-3">
+                <li><Link href="/" className="text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home</Link></li>
+                <li><Link href="/check-availability" className="text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Book Now</Link></li>
+                <li><Link href="/room-detail?type=standard" className="text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Rooms</Link></li>
+                <li><Link href="/contact" className="text-neutral-600 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+
+            <div className="text-sm">
+              <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 mb-4">Contact Info</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start space-x-2">
+                  <i className="las la-map-marker text-xl text-neutral-600 dark:text-neutral-400"></i>
+                  <span className="text-neutral-600 dark:text-neutral-300">123 Booking Street, City</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <i className="las la-phone text-xl text-neutral-600 dark:text-neutral-400"></i>
+                  <span className="text-neutral-600 dark:text-neutral-300">+1 234 567 890</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <i className="las la-envelope text-xl text-neutral-600 dark:text-neutral-400"></i>
+                  <span className="text-neutral-600 dark:text-neutral-300">info@housebooking.com</span>
+                </li>
+              </ul>
             </div>
           </div>
-          {widgetMenus.map(renderWidgetMenuItem)}
+
+          <div className="border-t border-neutral-200 dark:border-neutral-700 mt-12 pt-8">
+            <p className="text-center text-sm text-neutral-600 dark:text-neutral-400">
+              © {new Date().getFullYear()} House Booking. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </>

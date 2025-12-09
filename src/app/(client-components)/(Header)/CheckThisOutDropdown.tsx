@@ -14,12 +14,12 @@ import { Fragment } from "react";
 import Link from "next/link";
 
 const menuItems = [
-  { name: "Calendar Availability", href: "#calendar", icon: CalendarIcon },
-  { name: "Online Booking", href: "#booking", icon: DocumentTextIcon },
-  { name: "Photo Gallery", href: "#gallery", icon: PhotoIcon },
-  { name: "Property Details", href: "#details", icon: HomeIcon },
-  { name: "Pricing Rules", href: "#pricing", icon: CurrencyDollarIcon },
-  { name: "Contact", href: "#contact", icon: EnvelopeIcon },
+  { name: "Book Now", href: "/check-availability", icon: CalendarIcon },
+  { name: "Photo Gallery", href: "/#gallery", icon: PhotoIcon },
+  { name: "Property Details", href: "/#details", icon: HomeIcon },
+  { name: "Pricing", href: "/#pricing", icon: CurrencyDollarIcon },
+  { name: "Testimonials", href: "/#testimonials", icon: DocumentTextIcon },
+  { name: "Contact", href: "/contact", icon: EnvelopeIcon },
 ];
 
 export default function CheckThisOutDropdown() {
@@ -53,7 +53,7 @@ export default function CheckThisOutDropdown() {
                 <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="relative bg-white dark:bg-neutral-800 p-3">
                     {menuItems.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         onClick={() => close()}
@@ -63,7 +63,7 @@ export default function CheckThisOutDropdown() {
                         <p className="ml-3 text-sm font-medium text-gray-900 dark:text-neutral-200">
                           {item.name}
                         </p>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

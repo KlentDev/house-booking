@@ -23,64 +23,70 @@ interface PricingTier {
 
 const pricingTiers: PricingTier[] = [
   {
-    name: "Basic Stay",
-    icon: "🎁",
-    subtitle: "one-time payment, lifetime access",
-    price: 49,
-    originalPrice: 99,
+    name: "Standard Room",
+    icon: "🛏️",
+    subtitle: "Perfect for solo travelers or couples",
+    price: 100,
+    originalPrice: 150,
     features: {
-      title: "Core Features:",
+      title: "Room Features:",
       items: [
-        { text: "Standard Room Access", included: true },
-        { text: "Basic Amenities", included: true },
-        { text: "Priority Support", included: false },
+        { text: "Queen Bed", included: true },
+        { text: "Free WiFi", included: true },
+        { text: "Air Conditioning", included: true },
+        { text: "TV & Mini Fridge", included: true },
+        { text: "Balcony View", included: false },
       ],
     },
     breakdown: {
-      subtotal: 49.0,
+      subtotal: 100.0,
       tax: 0.0,
-      total: 49.0,
+      total: 100.0,
     },
   },
   {
-    name: "Premium Stay",
-    icon: "🏠",
-    subtitle: "one-time payment, lifetime access",
-    price: 149,
-    originalPrice: 299,
+    name: "Deluxe Room",
+    icon: "✨",
+    subtitle: "Spacious comfort with premium amenities",
+    price: 150,
+    originalPrice: 200,
     popular: true,
     features: {
-      title: "Everything in Basic, plus:",
+      title: "Everything in Standard, plus:",
       items: [
-        { text: "Deluxe Room Upgrade", included: true },
-        { text: "24/7 Concierge Service", included: true },
-        { text: "All Future Amenities", included: true },
+        { text: "King Bed", included: true },
+        { text: "Smart TV & Mini Bar", included: true },
+        { text: "Private Balcony", included: true },
+        { text: "Premium Toiletries", included: true },
+        { text: "Room Service", included: true },
       ],
     },
     breakdown: {
-      subtotal: 149.0,
+      subtotal: 150.0,
       tax: 0.0,
-      total: 149.0,
+      total: 150.0,
     },
   },
   {
-    name: "Luxury Suite",
-    icon: "📦",
-    subtitle: "one-time payment, lifetime access",
-    price: 299,
-    originalPrice: 599,
+    name: "Master Suite",
+    icon: "👑",
+    subtitle: "Ultimate luxury and sophistication",
+    price: 250,
+    originalPrice: 350,
     features: {
-      title: "Everything in Premium, plus:",
+      title: "Everything in Deluxe, plus:",
       items: [
-        { text: "Master Suite Access", included: true },
-        { text: "Private Chef Service", included: true },
-        { text: "VIP Concierge", included: false },
+        { text: "Separate Living Area", included: true },
+        { text: "Jacuzzi & Premium Bath", included: true },
+        { text: "Private Balcony with View", included: true },
+        { text: "24/7 Concierge Service", included: true },
+        { text: "Complimentary Breakfast", included: true },
       ],
     },
     breakdown: {
-      subtotal: 299.0,
+      subtotal: 250.0,
       tax: 0.0,
-      total: 299.0,
+      total: 250.0,
     },
   },
 ];
@@ -89,11 +95,11 @@ const SectionPricing = () => {
   return (
     <div className="nc-SectionPricing relative">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-          Choose Your Perfect Stay
+        <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-3">
+          Room Rates & Packages
         </h2>
-        <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
-          Select from our range of accommodation options designed to suit every traveler's needs and budget
+        <p className="text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+          Choose from our comfortable rooms with flexible pricing to match your budget and preferences
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -102,87 +108,54 @@ const SectionPricing = () => {
             key={index}
             className={`relative rounded-3xl p-8 ${
               tier.popular
-                ? "bg-blue-600 dark:bg-blue-600 border-2 border-blue-700"
-                : "bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700"
+                ? "bg-white dark:bg-neutral-900 border-2 border-green-500 shadow-xl"
+                : "bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700"
             }`}
           >
             {tier.popular && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                <span className="bg-green-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg">
                   Most Popular
                 </span>
               </div>
             )}
 
-            {/* Header */}
             <div className="mb-6">
               <div className="text-4xl mb-3">{tier.icon}</div>
-              <h3
-                className={`text-2xl font-bold mb-2 ${
-                  tier.popular
-                    ? "text-white dark:text-white"
-                    : "text-neutral-900 dark:text-white"
-                }`}
-              >
+              <h3 className="text-2xl font-bold mb-2 text-neutral-900 dark:text-white">
                 {tier.name}
               </h3>
-              <p
-                className={`text-sm ${
-                  tier.popular
-                    ? "text-blue-100 dark:text-blue-100"
-                    : "text-neutral-600 dark:text-neutral-300"
-                }`}
-              >
+              <p className="text-sm text-neutral-600 dark:text-neutral-300">
                 {tier.subtitle}
               </p>
             </div>
 
-            {/* Price */}
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span
-                  className={`text-5xl font-bold ${
-                    tier.popular
-                      ? "text-white dark:text-white"
-                      : "text-neutral-900 dark:text-white"
-                  }`}
-                >
+                <span className="text-5xl font-bold text-neutral-900 dark:text-white">
                   ${tier.price}
                 </span>
                 {tier.originalPrice && (
-                  <span
-                    className={`text-2xl line-through ${
-                      tier.popular
-                        ? "text-blue-200 dark:text-blue-200"
-                        : "text-neutral-400 dark:text-neutral-500"
-                    }`}
-                  >
+                  <span className="text-2xl line-through text-neutral-400 dark:text-neutral-500">
                     ${tier.originalPrice}
                   </span>
                 )}
+                <span className="text-sm text-neutral-500 dark:text-neutral-400">/night</span>
               </div>
             </div>
 
-            {/* CTA Button */}
             <button
               className={`w-full py-3 px-6 rounded-2xl font-semibold mb-8 transition-all ${
                 tier.popular
-                  ? "bg-blue-500 dark:bg-blue-500 text-white dark:text-white hover:bg-blue-400 dark:hover:bg-blue-400"
+                  ? "bg-green-500 text-white hover:bg-green-600"
                   : "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100"
               }`}
             >
-              💳 Book now
+              Book Now
             </button>
 
-            {/* Features */}
             <div className="mb-8">
-              <h4
-                className={`font-bold mb-4 ${
-                  tier.popular
-                    ? "text-white dark:text-white"
-                    : "text-neutral-900 dark:text-white"
-                }`}
-              >
+              <h4 className="font-bold mb-4 text-neutral-900 dark:text-white">
                 {tier.features.title}
               </h4>
               <ul className="space-y-3">
@@ -196,11 +169,7 @@ const SectionPricing = () => {
                     <span
                       className={`${
                         feature.included
-                          ? tier.popular
-                            ? "text-white dark:text-white"
-                            : "text-neutral-900 dark:text-white"
-                          : tier.popular
-                          ? "text-blue-200 dark:text-blue-200 line-through"
+                          ? "text-neutral-900 dark:text-white"
                           : "text-neutral-400 dark:text-neutral-500 line-through"
                       }`}
                     >
@@ -211,52 +180,21 @@ const SectionPricing = () => {
               </ul>
             </div>
 
-            {/* Breakdown */}
-            <div
-              className={`border-t pt-6 ${
-                tier.popular
-                  ? "border-blue-400 dark:border-blue-400"
-                  : "border-neutral-200 dark:border-neutral-700"
-              }`}
-            >
-              <h4
-                className={`font-bold mb-4 ${
-                  tier.popular
-                    ? "text-white dark:text-white"
-                    : "text-neutral-900 dark:text-white"
-                }`}
-              >
-                Estimated Breakdown (USD Mock)
+            <div className="border-t pt-6 border-neutral-200 dark:border-neutral-700">
+              <h4 className="font-bold mb-4 text-neutral-900 dark:text-white">
+                Price Breakdown
               </h4>
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between">
-                  <span
-                    className={
-                      tier.popular
-                        ? "text-blue-100 dark:text-blue-100"
-                        : "text-neutral-600 dark:text-neutral-300"
-                    }
-                  >
-                    Subtotal (Qty 1)
+                  <span className="text-neutral-600 dark:text-neutral-300">
+                    Room Rate
                   </span>
-                  <span
-                    className={
-                      tier.popular
-                        ? "text-white dark:text-white"
-                        : "text-neutral-900 dark:text-white"
-                    }
-                  >
+                  <span className="text-neutral-900 dark:text-white">
                     ${tier.breakdown.subtotal.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span
-                    className={
-                      tier.popular
-                        ? "text-blue-100 dark:text-blue-100"
-                        : "text-neutral-600 dark:text-neutral-300"
-                    }
-                  >
+                  <span className="text-neutral-600 dark:text-neutral-300">
                     Tax (0%)
                   </span>
                   <span className="text-green-500">
@@ -264,29 +202,11 @@ const SectionPricing = () => {
                   </span>
                 </div>
               </div>
-              <div
-                className={`flex justify-between text-xl font-bold pt-4 border-t ${
-                  tier.popular
-                    ? "border-blue-400 dark:border-blue-400"
-                    : "border-neutral-200 dark:border-neutral-700"
-                }`}
-              >
-                <span
-                  className={
-                    tier.popular
-                      ? "text-white dark:text-white"
-                      : "text-neutral-900 dark:text-white"
-                  }
-                >
+              <div className="flex justify-between text-xl font-bold pt-4 border-t border-neutral-200 dark:border-neutral-700">
+                <span className="text-neutral-900 dark:text-white">
                   Total
                 </span>
-                <span
-                  className={
-                    tier.popular
-                      ? "text-white dark:text-white"
-                      : "text-neutral-900 dark:text-white"
-                  }
-                >
+                <span className="text-neutral-900 dark:text-white">
                   ${tier.breakdown.total.toFixed(2)}
                 </span>
               </div>

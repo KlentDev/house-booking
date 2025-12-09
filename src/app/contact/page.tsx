@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import SectionSubscribe2 from "@/components/SectionSubscribe2";
-import SocialsList from "@/shared/SocialsList";
 import Label from "@/components/Label";
 import Input from "@/shared/Input";
 import Textarea from "@/shared/Textarea";
@@ -11,15 +10,15 @@ export interface PageContactProps {}
 const info = [
   {
     title: "🗺 ADDRESS",
-    desc: "Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter",
+    desc: "123 Booking Street, City, Country",
   },
   {
     title: "💌 EMAIL",
-    desc: "nc.example@example.com",
+    desc: "info@housebooking.com",
   },
   {
     title: "☎ PHONE",
-    desc: "000-123-456-7890",
+    desc: "+1 234 567 890",
   },
 ];
 
@@ -28,7 +27,7 @@ const PageContact: FC<PageContactProps> = ({}) => {
     <div className={`nc-PageContact overflow-hidden`}>
       <div className="mb-24 lg:mb-32">
         <h2 className="my-16 sm:my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
-          Contact
+          Contact Us
         </h2>
         <div className="container max-w-7xl mx-auto">
           <div className="flex-shrink-0 grid grid-cols-1 sm:grid-cols-2 gap-12 ">
@@ -47,7 +46,17 @@ const PageContact: FC<PageContactProps> = ({}) => {
                 <h3 className="uppercase font-semibold text-sm dark:text-neutral-200 tracking-wider">
                   🌏 SOCIALS
                 </h3>
-                <SocialsList className="mt-2" />
+                <div className="flex space-x-3 mt-2">
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900 transition-colors">
+                    <i className="lab la-facebook-f text-xl"></i>
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900 transition-colors">
+                    <i className="lab la-twitter text-xl"></i>
+                  </a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900 transition-colors">
+                    <i className="lab la-instagram text-xl"></i>
+                  </a>
+                </div>
               </div>
             </div>
             <div>
@@ -56,7 +65,7 @@ const PageContact: FC<PageContactProps> = ({}) => {
                   <Label>Full name</Label>
 
                   <Input
-                    placeholder="Example Doe"
+                    placeholder="John Doe"
                     type="text"
                     className="mt-1"
                   />

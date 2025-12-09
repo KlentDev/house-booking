@@ -6,9 +6,7 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import React, { useEffect, useRef } from "react";
-import { PathName } from "@/routers/types";
 import MenuBar from "@/shared/MenuBar";
-import isInViewport from "@/utils/isInViewport";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -19,7 +17,7 @@ if (typeof window !== "undefined") {
 
 interface NavItem {
   name: string;
-  link?: PathName;
+  link?: string;
   icon: any;
 }
 
@@ -64,28 +62,19 @@ const FooterNav = () => {
   };
 
   const showHideHeaderMenu = () => {
-    // if (typeof window === "undefined" || window?.innerWidth >= 768) {
-    //   return null;
-    // }
-
     let currentScrollPos = window.pageYOffset;
     if (!containerRef.current) return;
 
-    // SHOW _ HIDE MAIN MENU
+    const rect = containerRef.current.getBoundingClientRect();
+    const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
     if (currentScrollPos > WIN_PREV_POSITION) {
-      if (
-        isInViewport(containerRef.current) &&
-        currentScrollPos - WIN_PREV_POSITION < 80
-      ) {
+      if (isInView && currentScrollPos - WIN_PREV_POSITION < 80) {
         return;
       }
-
       containerRef.current.classList.add("FooterNav--hide");
     } else {
-      if (
-        !isInViewport(containerRef.current) &&
-        WIN_PREV_POSITION - currentScrollPos < 80
-      ) {
+      if (!isInView && WIN_PREV_POSITION - currentScrollPos < 80) {
         return;
       }
       containerRef.current.classList.remove("FooterNav--hide");

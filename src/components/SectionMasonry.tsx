@@ -5,77 +5,114 @@ import Masonry from "./Masonry";
 import Heading from "@/shared/Heading";
 
 const items = [
+  // Standard Room
   {
     id: "1",
-    img: "https://images.pexels.com/photos/64271/queen-of-liberty-statue-of-liberty-new-york-liberty-statue-64271.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=standard",
     height: 400,
+    label: "Standard Room",
   },
   {
     id: "2",
-    img: "https://images.pexels.com/photos/7740160/pexels-photo-7740160.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=standard",
     height: 250,
+    label: "Standard Room",
   },
   {
     id: "3",
-    img: "https://images.pexels.com/photos/739407/pexels-photo-739407.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/271619/pexels-photo-271619.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=standard",
     height: 600,
+    label: "Standard Room",
   },
   {
     id: "4",
-    img: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=standard",
     height: 350,
+    label: "Standard Room",
   },
+  // Deluxe Room
   {
     id: "5",
-    img: "https://images.pexels.com/photos/4151484/pexels-photo-4151484.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=deluxe",
     height: 450,
+    label: "Deluxe Room",
   },
   {
     id: "6",
-    img: "https://images.pexels.com/photos/3250613/pexels-photo-3250613.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=deluxe",
     height: 300,
+    label: "Deluxe Room",
   },
   {
     id: "7",
-    img: "https://images.pexels.com/photos/5764100/pexels-photo-5764100.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/1743366/pexels-photo-1743366.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=deluxe",
     height: 500,
+    label: "Deluxe Room",
   },
   {
     id: "8",
-    img: "https://images.pexels.com/photos/2869499/pexels-photo-2869499.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/1457847/pexels-photo-1457847.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=deluxe",
     height: 280,
+    label: "Deluxe Room",
   },
+  // Surroundings
   {
     id: "9",
     img: "https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    url: "/room-detail?type=surroundings",
     height: 420,
+    label: "Surroundings",
   },
   {
     id: "10",
     img: "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    url: "/room-detail?type=surroundings",
     height: 380,
+    label: "Surroundings",
   },
   {
     id: "11",
     img: "https://images.pexels.com/photos/1838554/pexels-photo-1838554.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    url: "/room-detail?type=surroundings",
     height: 320,
+    label: "Surroundings",
   },
+  // Master Suite
   {
     id: "12",
-    img: "https://images.pexels.com/photos/2581922/pexels-photo-2581922.jpeg?auto=compress&cs=tinysrgb&w=800",
-    url: "/listing-stay-map",
+    img: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=master",
     height: 480,
+    label: "Master Suite",
+  },
+  {
+    id: "13",
+    img: "https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=master",
+    height: 400,
+    label: "Master Suite",
+  },
+  {
+    id: "14",
+    img: "https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=master",
+    height: 350,
+    label: "Master Suite",
+  },
+  {
+    id: "15",
+    img: "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+    url: "/room-detail?type=master",
+    height: 450,
+    label: "Master Suite",
   },
 ];
 
@@ -86,7 +123,7 @@ export interface SectionMasonryProps {
 const SectionMasonry: React.FC<SectionMasonryProps> = ({ className = "" }) => {
   return (
     <div className={`nc-SectionMasonry relative ${className}`}>
-      <Heading desc="Browse through our stunning collection of properties and destinations" isCenter={true}>
+      <Heading desc="Take a virtual tour of our rooms and property" isCenter={true}>
         Photo Gallery
       </Heading>
       <div className="relative" style={{ minHeight: '800px' }}>
@@ -100,6 +137,7 @@ const SectionMasonry: React.FC<SectionMasonryProps> = ({ className = "" }) => {
           hoverScale={0.95}
           blurToFocus={true}
           colorShiftOnHover={false}
+          showTooltip={true}
         />
       </div>
     </div>
